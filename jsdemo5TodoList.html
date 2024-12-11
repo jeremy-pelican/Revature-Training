@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To Do List</title>
+</head>
+<body>
+    <h1>To Do List</h1>
+    <input type = "text" id = "text"/>
+    <button id = "add" onclick = "listAdd()">Add to List</button>
+    <button id = "delete" onclick = "listDelete()">Delete from List</button>
+    <button id = "complete" onclick = "completeItem()">Complete Item</button>
+    <hr/>
+    <ul id = "myUL">
+    </ul>
+
+    <!--
+    Todo list functions
+    1. add item to list
+    2. delete item from list
+    3. mark item as complete (change color, strikethrough, etc)
+    4. (optional) edit an item
+    -->
+    <script>
+        function listAdd() {
+            let newItem = document.createElement("li");
+            let text = document.getElementById("text").value;
+            newItem.innerHTML = text;
+            newItem.id = text;
+            let whereToInsert = document.getElementById("myUL");
+            whereToInsert.append(newItem);
+        }
+        
+        function listDelete() {
+            var whereToDelete = document.getElementById("myUL");
+            var text = document.getElementById("text");
+            var item = document.getElementById(text.value);
+            whereToDelete.removeChild(item);
+        }
+
+        function completeItem() {
+            var wheretoComplete = document.getElementById("myUL");
+            var text = document.getElementById("text");
+            let doneItem = document.getElementById(text.value);
+            doneItem.style.color = "green";
+        }
+
+        function editItem() {
+
+        }
+    </script>
+</body>
+</html>
