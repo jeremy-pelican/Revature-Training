@@ -10,7 +10,9 @@ const CommentComponent=()=> {
         <h1>Comments</h1>
         <ul>
             {comments.map((comment) => (
-                <li number = {comment.id}>{comment.message}</li>
+                <div key={comment.id}>
+                    <li number = {comment.id}>{comment.message}</li>
+                </div> 
             ))}
         </ul>
         </>
